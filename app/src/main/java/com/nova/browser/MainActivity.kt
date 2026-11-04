@@ -33,10 +33,15 @@ class MainActivity : AppCompatActivity() {
         webView.settings.javaScriptEnabled = true
         webView.webViewClient = WebViewClient()
         findViewById<Button>(R.id.searchButton).setOnClickListener { go() }
-        findViewById<Button>(R.id.myPrivateButton).setOnClickListener { showMyPrivate() }
+        findViewById<Button>(R.id.myPrivateButton).setOnClickListener {
+            // Premium My Private section, as designed by the user, extra premium in assets.
+            webView.loadUrl("file:///android_asset/nova_private_premium.html")
+        }
         findViewById<Button>(R.id.addToMyPrivateButton).setOnClickListener { addCurrentToMyPrivate() }
-        // Default home: Google search page with Nova branding in the bar above.
-        webView.loadUrl("https://www.google.com")
+        // Premium home: user's Nova UI design (home, search, menu, PIN, private) in assets.
+        // Original user designs are also in assets: nova_home_original.html, nova_menu_original.html,
+        // nova_pin_original.html, nova_private_original.html.
+        webView.loadUrl("file:///android_asset/nova_home_premium.html")
     }
 
     private fun go() {

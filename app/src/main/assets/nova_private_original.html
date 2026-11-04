@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nova Browser - My Private Virtual OS</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container": "#e5eeff",
+            "surface-tint": "#0053db",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-highest": "#d3e4fe",
+            "outline": "#737686",
+            "surface-container-low": "#eff4ff",
+            "background": "#f8f9ff",
+            "tertiary-fixed": "#c4e7ff",
+            "inverse-primary": "#b4c5ff",
+            "surface": "#f8f9ff",
+            "on-primary-fixed": "#00174b",
+            "on-tertiary-fixed-variant": "#004c69",
+            "on-tertiary": "#ffffff",
+            "on-secondary-container": "#5c647a",
+            "surface-container-high": "#dce9ff",
+            "on-surface-variant": "#434655",
+            "secondary-fixed": "#dae2fd",
+            "secondary-container": "#dae2fd",
+            "on-primary-container": "#eeefff",
+            "surface-bright": "#f8f9ff",
+            "outline-variant": "#c3c6d7",
+            "on-secondary": "#ffffff",
+            "tertiary-container": "#00759f",
+            "primary-fixed": "#dbe1ff",
+            "on-secondary-fixed": "#131b2e",
+            "on-surface": "#0b1c30",
+            "on-tertiary-container": "#e1f2ff",
+            "on-error": "#ffffff",
+            "on-secondary-fixed-variant": "#3f465c",
+            "on-background": "#0b1c30",
+            "surface-dim": "#cbdbf5",
+            "on-tertiary-fixed": "#001e2c",
+            "tertiary-fixed-dim": "#7bd0ff",
+            "secondary": "#565e74",
+            "inverse-surface": "#213145",
+            "error": "#ba1a1a",
+            "on-primary-fixed-variant": "#003ea8",
+            "surface-variant": "#d3e4fe",
+            "primary-fixed-dim": "#b4c5ff",
+            "inverse-on-surface": "#eaf1ff",
+            "primary-container": "#2563eb",
+            "on-primary": "#ffffff",
+            "on-error-container": "#93000a",
+            "tertiary": "#005b7c",
+            "secondary-fixed-dim": "#bec6e0",
+            "error-container": "#ffdad6",
+            "primary": "#004ac6"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-2xl": "2rem",
+            "margin-lg": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1rem",
+            "space-xl": "1.5rem",
+            "space-sm": "0.5rem",
+            "space-md": "0.75rem",
+            "gutter-sm": "0.5rem",
+            "margin": "1rem",
+            "gutter": "1rem"
+          },
+          "fontFamily": {
+            "body-lg": ["Inter"],
+            "headline-sm": ["Inter"],
+            "label-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-lg-mobile": ["Inter"],
+            "headline-lg": ["Inter"],
+            "display-lg": ["Inter"],
+            "label-sm": ["Inter"],
+            "headline-md": ["Inter"],
+            "label-md": ["Inter"]
+          },
+          "fontSize": {
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-sm": ["16px", { "lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-lg": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "display-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .custom-vault-chassis {
+      box-shadow: 0 25px 50px -12px rgba(11, 28, 48, 0.45), inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex flex-col font-body-md select-none overflow-x-hidden">
+<!-- ================= TOP APP BAR (from Shared Components JSON) ================= -->
+<header class="bg-surface text-primary shadow-sm border-b border-outline-variant flex justify-between items-center w-full px-space-md py-space-sm z-30 sticky top-0">
+<div class="flex items-center gap-space-sm">
+<button aria-label="Security Status" class="flex items-center justify-center p-space-xs rounded-full hover:bg-surface-container active:scale-95 transition-all duration-150 text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px] text-primary" data-icon="lock" style="font-variation-settings: 'FILL' 1;">lock</span>
+</button>
+<!-- Omnibox capsule display -->
+<div class="flex items-center gap-space-xs bg-surface-container px-space-md py-1 rounded-full border border-outline-variant/60">
+<span class="text-label-md font-label-md text-on-surface">nova://search</span>
+<span class="bg-primary text-on-primary text-[10px] font-bold px-1.5 py-0.5 rounded-full uppercase tracking-wider">VAULT</span>
+</div>
+</div>
+<!-- Active Shield Protection Status & Trailing Actions -->
+<div class="flex items-center gap-space-sm">
+<div class="hidden sm:flex items-center gap-1.5 px-2.5 py-1 bg-surface-container-high rounded-full border border-outline-variant/40">
+<span class="material-symbols-outlined text-primary text-[16px]" data-icon="shield">shield</span>
+<span class="text-label-sm font-label-sm text-primary font-bold">Zero-Trace RAM Active</span>
+</div>
+<button aria-label="Omnibox menu" class="flex items-center justify-center p-space-xs rounded-full hover:bg-surface-container active:scale-95 transition-all duration-150 text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</header>
+<!-- ================= MAIN VIEWPORT CANVAS: VIRTUAL PHONE OS ================= -->
+<main class="flex-1 flex flex-col items-center justify-center px-space-md py-space-lg w-full max-w-7xl mx-auto">
+<!-- Meta Environment Notice -->
+<div class="w-full max-w-sm sm:max-w-md flex items-center justify-between px-space-sm pb-space-sm">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="lock">lock</span>
+<span class="text-label-sm font-label-sm">Secured Container · Sandbox v2.4</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-label-sm font-label-sm font-semibold text-primary">ENCRYPTED</span>
+</div>
+</div>
+<!-- VIRTUAL SMARTPHONE CHASSIS -->
+<div class="w-full max-w-sm sm:max-w-[400px] h-[812px] bg-inverse-surface rounded-[44px] p-3 custom-vault-chassis relative flex flex-col border-[5px] border-slate-800 transition-all duration-300">
+<!-- INNER PHONE SCREEN -->
+<div class="w-full h-full rounded-[36px] bg-gradient-to-b from-slate-950 via-slate-900 to-[#071329] overflow-hidden flex flex-col relative text-on-primary-container shadow-inner">
+<!-- TOP DYNAMIC ISLAND & PHONE HARDWARE STATUS BAR -->
+<div class="w-full pt-2.5 px-6 flex items-center justify-between z-20">
+<!-- Time & Sandbox Indicator -->
+<div class="flex items-center gap-1.5 text-on-tertiary-container">
+<span class="text-label-md font-label-md font-bold tracking-tight">9:41</span>
+<span class="text-[10px] font-bold text-primary-fixed bg-primary/40 px-1.5 py-0.2 rounded-full border border-primary/30">SANDBOX</span>
+</div>
+<!-- Dynamic Island Capsule -->
+<div class="w-24 h-5 bg-black rounded-full flex items-center justify-center gap-2 shadow-sm border border-slate-800/80 px-2">
+<div class="w-2.5 h-2.5 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center">
+<span class="w-1 h-1 rounded-full bg-blue-500/80"></span>
+</div>
+<div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div>
+</div>
+<!-- Phone Telemetry (Wi-Fi, 5G, Battery, Isolated Hardware) -->
+<div class="flex items-center gap-1.5 text-on-tertiary-container">
+<span class="material-symbols-outlined text-[14px]" data-icon="wifi">wifi</span>
+<span class="text-[10px] font-bold font-body-sm tracking-tighter">5G</span>
+<div class="flex items-center gap-0.5">
+<span class="text-[10px] font-bold">98%</span>
+<span class="material-symbols-outlined text-[16px] text-primary-fixed" data-icon="battery_full">battery_full</span>
+</div>
+</div>
+</div>
+<!-- SCROLLABLE OS DESKTOP WORKSPACE -->
+<div class="flex-1 overflow-y-auto px-4 pt-3 pb-24 flex flex-col gap-4 scrollbar-none">
+<!-- SLEEK HARDWARE TIME & ENCRYPTED WEATHER WIDGET -->
+<div class="w-full bg-slate-900/70 border border-slate-700/60 rounded-2xl p-3.5 backdrop-blur-md relative overflow-hidden">
+<div class="absolute -right-4 -bottom-4 w-24 h-24 bg-primary/20 rounded-full blur-xl pointer-events-none"></div>
+<div class="flex justify-between items-start">
+<div>
+<span class="text-label-sm font-label-sm text-outline-variant font-semibold tracking-wide uppercase">Wednesday, Oct 25</span>
+<h1 class="text-display-lg font-display-lg text-white font-bold leading-none mt-1 tracking-tight">09:41<span class="text-label-lg font-label-lg text-primary-fixed ml-1">AM</span></h1>
+</div>
+<!-- Isolated Memory Chip Badge -->
+<div class="flex flex-col items-end gap-1">
+<div class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary/25 border border-primary/40 text-primary-fixed text-[10px] font-bold">
+<span class="material-symbols-outlined text-[12px]" data-icon="memory">memory</span>
+<span>Isolated Memory</span>
+</div>
+<div class="flex items-center gap-1 text-slate-300 text-label-sm font-label-sm mt-1">
+<span class="material-symbols-outlined text-[14px] text-amber-300" data-icon="partly_cloudy_day">partly_cloudy_day</span>
+<span>68°F Encrypted</span>
+</div>
+</div>
+</div>
+<!-- Virtual OS System Metric Strip -->
+<div class="mt-3 pt-2.5 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-400">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-emerald-400" data-icon="lock">lock</span>
+<span>Container: Zero-Persistence</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary-fixed" data-icon="speed">speed</span>
+<span>0 ms Latency</span>
+</div>
+</div>
+</div>
+<!-- SECTION HEADER: VIRTUAL APPLICATIONS & 8 ACTIVE PILL -->
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-2">
+<span class="text-label-sm font-label-sm font-bold tracking-wider text-slate-300 uppercase">VIRTUAL APPLICATIONS</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-primary/20 border border-primary/40 text-primary-fixed text-label-sm font-label-sm font-bold">
+              8 Active
+            </span>
+</div>
+<!-- APP GRID: WEB APPS SAVED AS NATIVE PHONE APPS -->
+<div class="grid grid-cols-4 gap-y-4 gap-x-2.5 text-center">
+<!-- App 1: Spotify -->
+<div class="flex flex-col items-center group cursor-pointer active:scale-90 transition-transform">
+<div class="relative">
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500 to-green-700 flex items-center justify-center text-white shadow-lg shadow-emerald-950/40 border border-white/10 group-hover:brightness-110">
+<span class="material-symbols-outlined text-[28px]" data-icon="graphic_eq">graphic_eq</span>
+</div>
+<span class="absolute -top-1 -right-1 w-4 h-4 bg-primary text-white text-[10px] font-bold rounded-full flex items-center justify-center border border-slate-900 shadow">2</span>
+</div>
+<span class="text-label-sm font-label-sm text-slate-200 mt-1.5 truncate w-full">Spotify</span>
+</div>
+<!-- App 2: Notion -->
+<div class="flex flex-col items-center group cursor-pointer active:scale-90 transition-transform">
+<div class="relative">
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-slate-100 to-slate-300 flex items-center justify-center text-slate-900 shadow-lg border border-white/20 group-hover:brightness-105">
+<span class="material-symbols-outlined text-[28px]" data-icon="edit_note">edit_note</span>
+</div>
+</div>
+<span class="text-label-sm font-label-sm text-slate-200 mt-1.5 truncate w-full">Notion</span>
+</div>
+<!-- App 3: ChatGPT -->
+<div class="flex flex-col items-center group cursor-pointer active:scale-90 transition-transform">
+<div class="relative">
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-teal-500 to-emerald-700 flex items-center justify-center text-white shadow-lg border border-white/10 group-hover:brightness-110">
+<span class="material-symbols-outlined text-[28px]" data-icon="smart_toy">smart_toy</span>
+</div>
+<span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-400 rounded-full border border-slate-900"></span>
+</div>
+<span class="text-label-sm font-label-sm text-slate-200 mt-1.5 truncate w-full">ChatGPT</span>
+</div>
+<!-- App 4: Binance -->
+<div class="flex flex-col items-center group cursor-pointer active:scale-90 transition-transform">
+<div class="relative">
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-400 to-yellow-600 flex items-center justify-center text-slate-950 shadow-lg border border-white/10 group-hover:brightness-110">
+<span class="material-symbols-outlined text-[28px]" data-icon="currency_bitcoin">currency_bitcoin</span>
+</div>
+<span class="absolute -top-1 -right-1 w-4 h-4 bg-error text-white text-[10px] font-bold rounded-full flex items-center justify-center border border-slate-900 shadow">5</span>
+</div>
+<span class="text-label-sm font-label-sm text-slate-200 mt-1.5 truncate w-full">Binance</span>
+</div>
+<!-- App 5: Telegram -->
+<div class="flex flex-col items-center group cursor-pointer active:scale-90 transition-transform">
+<div class="relative">
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-sky-400 to-blue-600 flex items-center justify-center text-white shadow-lg border border-white/10 group-hover:brightness-110">
+<span class="material-symbols-outlined text-[28px]" data-icon="send">send</span>
+</div>
+<span class="absolute -top-1 -right-1 w-4 h-4 bg-error text-white text-[10px] font-bold rounded-full flex items-center justify-center border border-slate-900 shadow">12</span>
+</div>
+<span class="text-label-sm font-label-sm text-slate-200 mt-1.5 truncate w-full">Telegram</span>
+</div>
+<!-- App 6: Instagram -->
+<div class="flex flex-col items-center group cursor-pointer active:scale-90 transition-transform">
+<div class="relative">
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 flex items-center justify-center text-white shadow-lg border border-white/10 group-hover:brightness-110">
+<span class="material-symbols-outlined text-[28px]" data-icon="photo_camera">photo_camera</span>
+</div>
+</div>
+<span class="text-label-sm font-label-sm text-slate-200 mt-1.5 truncate w-full">Instagram</span>
+</div>
+<!-- App 7: Notes -->
+<div class="flex flex-col items-center group cursor-pointer active:scale-90 transition-transform">
+<div class="relative">
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-yellow-300 to-amber-500 flex items-center justify-center text-slate-950 shadow-lg border border-white/10 group-hover:brightness-110">
+<span class="material-symbols-outlined text-[28px]" data-icon="description">description</span>
+</div>
+</div>
+<span class="text-label-sm font-label-sm text-slate-200 mt-1.5 truncate w-full">Notes</span>
+</div>
+<!-- App 8: Private Gallery/Vault -->
+<div class="flex flex-col items-center group cursor-pointer active:scale-90 transition-transform">
+<div class="relative">
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-600 to-slate-900 flex items-center justify-center text-primary-fixed shadow-lg border border-indigo-400/40 group-hover:brightness-110">
+<span class="material-symbols-outlined text-[28px]" data-icon="lock" style="font-variation-settings: 'FILL' 1;">lock</span>
+</div>
+<span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-primary-fixed rounded-full border border-slate-900"></span>
+</div>
+<span class="text-label-sm font-label-sm text-slate-200 mt-1.5 truncate w-full">Gallery</span>
+</div>
+</div>
+<!-- ACTIONS CALLOUTS -->
+<div class="flex flex-col gap-2.5 mt-2">
+<!-- Action 1: Install More Web Apps -->
+<button class="w-full py-2.5 px-4 rounded-xl bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 flex items-center justify-center gap-2 text-primary-fixed hover:text-white transition-all duration-150 active:scale-95 group">
+<span class="material-symbols-outlined text-[20px] transition-transform group-hover:rotate-90" data-icon="add">add</span>
+<span class="text-label-md font-label-md font-semibold">+ Install More Web Apps</span>
+</button>
+<!-- Action 2: Exit Private Space -->
+<button class="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-red-950/40 to-slate-900 hover:from-red-900/60 hover:to-slate-800 border border-red-500/30 flex items-center justify-center gap-2 text-rose-300 hover:text-white transition-all duration-150 active:scale-95 shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-rose-400" data-icon="lock" style="font-variation-settings: 'FILL' 1;">lock</span>
+<span class="text-label-md font-label-md font-semibold">Exit Private Space</span>
+</button>
+</div>
+<!-- ISOLATED CONTAINER INFO CARD -->
+<div class="rounded-xl bg-slate-950/60 border border-slate-800 p-3 flex items-start gap-2.5 mt-auto">
+<span class="material-symbols-outlined text-primary-fixed text-[20px] shrink-0 mt-0.5" data-icon="shield">shield</span>
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm font-semibold text-slate-200">Autonomous Cookie Isolation</span>
+<p class="text-body-sm font-body-sm text-slate-400 leading-snug">All 8 web apps run inside sealed sandboxes. History, storage, and telemetry auto-purge upon browser sleep.</p>
+</div>
+</div>
+</div>
+<!-- BOTTOM FLOATING PHONE DOCK -->
+<div class="absolute bottom-6 left-3 right-3 bg-slate-900/85 backdrop-blur-xl border border-slate-700/60 rounded-3xl p-2.5 flex items-center justify-around shadow-2xl z-20">
+<!-- Dock App 1: Phone -->
+<button aria-label="Phone" class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-emerald-600 to-green-400 flex items-center justify-center text-white active:scale-90 transition-transform shadow-md">
+<span class="material-symbols-outlined text-[24px]" data-icon="call" style="font-variation-settings: 'FILL' 1;">call</span>
+</button>
+<!-- Dock App 2: Browser -->
+<button aria-label="Browser" class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center text-white active:scale-90 transition-transform shadow-md">
+<span class="material-symbols-outlined text-[24px]" data-icon="language">language</span>
+</button>
+<!-- Dock App 3: Messages -->
+<button aria-label="Messages" class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-sky-500 to-teal-400 flex items-center justify-center text-white active:scale-90 transition-transform shadow-md relative">
+<span class="material-symbols-outlined text-[24px]" data-icon="chat" style="font-variation-settings: 'FILL' 1;">chat</span>
+<span class="absolute top-1 right-1 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-slate-900"></span>
+</button>
+<!-- Dock App 4: Settings -->
+<button aria-label="Settings" class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-slate-700 to-slate-500 flex items-center justify-center text-slate-100 active:scale-90 transition-transform shadow-md">
+<span class="material-symbols-outlined text-[24px]" data-icon="settings">settings</span>
+</button>
+</div>
+<!-- BOTTOM GESTURE HOME INDICATOR BAR -->
+<div class="absolute bottom-1.5 left-0 right-0 flex justify-center items-center pointer-events-none z-30">
+<div class="w-32 h-1 bg-slate-400/80 rounded-full"></div>
+</div>
+</div>
+</div>
+</main>
+<!-- ================= BOTTOM NAVIGATION BAR (from Shared Components JSON) ================= -->
+<!-- Rendered with 5 exact icons: arrow_back, arrow_forward, home, tab, more_vert -->
+<!-- Contextual Active: home represents active browser workspace hub -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-between items-center px-space-xl py-space-sm bg-surface-container-lowest shadow-md border-t border-outline-variant">
+<!-- Icon 1: arrow_back -->
+<button aria-label="Back" class="flex items-center justify-center text-on-surface-variant p-space-sm rounded-full hover:bg-surface-container active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined text-[24px]" data-icon="arrow_back">arrow_back</span>
+</button>
+<!-- Icon 2: arrow_forward -->
+<button aria-label="Forward" class="flex items-center justify-center text-on-surface-variant p-space-sm rounded-full hover:bg-surface-container active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined text-[24px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<!-- Icon 3: home (Active Navigation Destination) -->
+<button aria-label="Home" class="flex items-center justify-center bg-primary-container text-on-primary-container rounded-full p-space-sm active:scale-95 transition-transform duration-150 shadow-sm">
+<span class="material-symbols-outlined text-[24px]" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+</button>
+<!-- Icon 4: tab -->
+<button aria-label="Tabs" class="flex items-center justify-center text-on-surface-variant p-space-sm rounded-full hover:bg-surface-container active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined text-[24px]" data-icon="tab">tab</span>
+</button>
+<!-- Icon 5: more_vert -->
+<button aria-label="More" class="flex items-center justify-center text-on-surface-variant p-space-sm rounded-full hover:bg-surface-container active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined text-[24px]" data-icon="more_vert">more_vert</span>
+</button>
+</nav>
+<!-- Interactive feedback script for OS simulation -->
+<script>
+    document.querySelectorAll('.active\\:scale-90, .active\\:scale-95').forEach(el => {
+      el.addEventListener('click', () => {
+        if (navigator.vibrate) {
+          navigator.vibrate(12);
+        }
+      });
+    });
+  </script>
+</body></html>

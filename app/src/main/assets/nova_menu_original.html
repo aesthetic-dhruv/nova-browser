@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mobile Web Browser - Nova Secure View</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Inter Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container": "#e5eeff",
+            "surface-tint": "#0053db",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-highest": "#d3e4fe",
+            "outline": "#737686",
+            "surface-container-low": "#eff4ff",
+            "background": "#f8f9ff",
+            "tertiary-fixed": "#c4e7ff",
+            "inverse-primary": "#b4c5ff",
+            "surface": "#f8f9ff",
+            "on-primary-fixed": "#00174b",
+            "on-tertiary-fixed-variant": "#004c69",
+            "on-tertiary": "#ffffff",
+            "on-secondary-container": "#5c647a",
+            "surface-container-high": "#dce9ff",
+            "on-surface-variant": "#434655",
+            "secondary-fixed": "#dae2fd",
+            "secondary-container": "#dae2fd",
+            "on-primary-container": "#eeefff",
+            "surface-bright": "#f8f9ff",
+            "outline-variant": "#c3c6d7",
+            "on-secondary": "#ffffff",
+            "tertiary-container": "#00759f",
+            "primary-fixed": "#dbe1ff",
+            "on-secondary-fixed": "#131b2e",
+            "on-surface": "#0b1c30",
+            "on-tertiary-container": "#e1f2ff",
+            "on-error": "#ffffff",
+            "on-secondary-fixed-variant": "#3f465c",
+            "on-background": "#0b1c30",
+            "surface-dim": "#cbdbf5",
+            "on-tertiary-fixed": "#001e2c",
+            "tertiary-fixed-dim": "#7bd0ff",
+            "secondary": "#565e74",
+            "inverse-surface": "#213145",
+            "error": "#ba1a1a",
+            "on-primary-fixed-variant": "#003ea8",
+            "surface-variant": "#d3e4fe",
+            "primary-fixed-dim": "#b4c5ff",
+            "inverse-on-surface": "#eaf1ff",
+            "primary-container": "#2563eb",
+            "on-primary": "#ffffff",
+            "on-error-container": "#93000a",
+            "tertiary": "#005b7c",
+            "secondary-fixed-dim": "#bec6e0",
+            "error-container": "#ffdad6",
+            "primary": "#004ac6"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-2xl": "2rem",
+            "margin-lg": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1rem",
+            "space-xl": "1.5rem",
+            "space-sm": "0.5rem",
+            "space-md": "0.75rem",
+            "gutter-sm": "0.5rem",
+            "margin": "1rem",
+            "gutter": "1rem"
+          },
+          "fontFamily": {
+            "body-lg": ["Inter"],
+            "headline-sm": ["Inter"],
+            "label-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-lg-mobile": ["Inter"],
+            "headline-lg": ["Inter"],
+            "display-lg": ["Inter"],
+            "label-sm": ["Inter"],
+            "headline-md": ["Inter"],
+            "label-md": ["Inter"]
+          },
+          "fontSize": {
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-sm": ["16px", { "lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-lg": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "display-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .custom-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased font-body-md text-body-md select-none min-h-screen flex justify-center items-center">
+<!-- Mobile Viewport Container simulating mobile flagship frame -->
+<div class="relative w-full max-w-[430px] h-[932px] max-h-screen bg-background overflow-hidden shadow-2xl flex flex-col sm:rounded-[40px] sm:border-[8px] sm:border-inverse-surface">
+<!-- Top System Status Area -->
+<div class="w-full h-8 pt-2 px-space-xl flex justify-between items-center text-on-surface z-40 bg-surface">
+<span class="font-label-md text-label-md font-bold tracking-tight">09:41</span>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px]">signal_cellular_4_bar</span>
+<span class="material-symbols-outlined text-[16px]">wifi</span>
+<span class="material-symbols-outlined text-[16px]">battery_full</span>
+</div>
+</div>
+<!-- SHARED COMPONENT: TopAppBar (Strict JSON alignment) -->
+<header class="bg-surface dark:bg-inverse-surface border-b border-outline-variant dark:border-outline shadow-sm dark:shadow-none flex justify-between items-center w-full px-space-md py-space-sm z-30 transition-all">
+<div class="flex items-center gap-space-xs flex-1 max-w-[290px] h-[40px] px-space-md bg-surface-container-low rounded-full border border-outline-variant/30">
+<span class="material-symbols-outlined text-outline text-[18px]" data-icon="lock">lock</span>
+<span class="text-body-md font-body-md text-primary dark:text-inverse-primary truncate font-medium">nova://search</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-surface-container hover:text-on-surface active:scale-95 transition-all duration-150 text-on-surface-variant">
+<span class="material-symbols-outlined text-[22px]">format_image_left</span>
+</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-surface-container hover:text-on-surface active:scale-95 transition-all duration-150 text-primary dark:text-inverse-primary font-bold">
+<span class="material-symbols-outlined text-[24px]" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</header>
+<!-- ACTIVE WEBPAGE CANVAS (Slightly dimmed & blurred beneath the open menu) -->
+<main class="relative flex-1 w-full overflow-y-auto custom-scrollbar p-space-lg filter blur-[2px] opacity-40 transition-all pointer-events-none">
+<!-- Article Mock Content Canvas -->
+<article class="space-y-space-lg">
+<div class="inline-flex items-center gap-space-xs px-3 py-1 rounded-full bg-surface-container-high text-primary">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+<span class="font-label-sm text-label-sm">Secured Protocol Webview</span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">The Next Frontier of Web Cryptography and Local Isolation</h1>
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center font-label-md text-label-md text-on-surface">
+            NA
+          </div>
+<div>
+<p class="font-label-md text-label-md text-on-surface font-semibold">Nova Architecture Labs</p>
+<p class="font-body-sm text-body-sm text-outline">Published 14m ago • 4 min read</p>
+</div>
+</div>
+<!-- Featured Media Container -->
+<div class="w-full h-44 rounded-DEFAULT overflow-hidden bg-surface-variant border border-outline-variant/40 relative">
+<img class="w-full h-full object-cover" data-alt="A clean contemporary tech illustration displaying minimalist digital encryption keys and floating layered glass geometric panes rendered with soft blue ambient gradients and crisp white modern background aesthetics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7o3g3zzprodDjxKEGSaKUeKnm_v7b1ygsgNxFuErlMNOLa0Yfi6PZlraEbbSGZducC2GGeIAVdD_iIuMH3jBnZkUuH1G481WLhM7q6R5tUP9s2nddQFvJyWX8jpLMBzO0NXaBTMPiuOL4R3IiKdvrIQjrt9fkku6k40NwXJPWD3yEHzl4-7nBe1ie5YOMnMMVtc2GDWtx5tVNdmh2XuHD7KgoY8wN2j1IB-RIfP8c"/>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+          Modern mobile architecture often blurs the boundary between shared browsing histories and persistent isolated web applications. Nova's virtual isolated sandboxes deliver high performance hardware token partitioning.
+        </p>
+<!-- Bento Grid Stats Card Mock -->
+<div class="grid grid-cols-2 gap-space-md pt-space-xs">
+<div class="p-space-md rounded-DEFAULT bg-surface-container-low border border-outline-variant/30">
+<span class="material-symbols-outlined text-primary mb-1">lock_clock</span>
+<div class="font-headline-sm text-headline-sm text-on-surface">0.03 ms</div>
+<p class="font-label-sm text-label-sm text-outline">Key Decryption Latency</p>
+</div>
+<div class="p-space-md rounded-DEFAULT bg-surface-container-low border border-outline-variant/30">
+<span class="material-symbols-outlined text-primary mb-1">enhanced_encryption</span>
+<div class="font-headline-sm text-headline-sm text-on-surface">256-Bit GCM</div>
+<p class="font-label-sm text-label-sm text-outline">Isolated Cookie Store</p>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+          By leveraging sandbox containment, each application added into the vault container operates in an isolated micro-client.
+        </p>
+</article>
+</main>
+<!-- BACKDROP CLICK DISMISS SHIELD -->
+<div class="absolute inset-0 z-40 bg-on-surface/10 backdrop-blur-[1px]"></div>
+<!-- POPUP MENU CARD (Chrome-like 3-dot dropdown attached to top-right) -->
+<section class="absolute top-[52px] right-2 z-50 w-[304px] bg-surface-container-lowest rounded-2xl shadow-2xl border border-outline-variant/40 overflow-hidden flex flex-col py-1.5 animate-in fade-in zoom-in-95 duration-150">
+<!-- Top Action Strip: Back, Bookmark, Download, Page Info, Reload -->
+<div class="flex items-center justify-between px-3 py-2 border-b border-outline-variant/30 text-on-surface-variant">
+<button class="w-9 h-9 rounded-full flex items-center justify-center hover:bg-surface-container active:scale-95 transition-all text-on-surface-variant" title="Back">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+</button>
+<button class="w-9 h-9 rounded-full flex items-center justify-center hover:bg-surface-container active:scale-95 transition-all text-on-surface-variant" title="Bookmark">
+<span class="material-symbols-outlined text-[20px]">star</span>
+</button>
+<button class="w-9 h-9 rounded-full flex items-center justify-center hover:bg-surface-container active:scale-95 transition-all text-on-surface-variant" title="Download">
+<span class="material-symbols-outlined text-[20px]">download</span>
+</button>
+<button class="w-9 h-9 rounded-full flex items-center justify-center hover:bg-surface-container active:scale-95 transition-all text-on-surface-variant" title="Page Info">
+<span class="material-symbols-outlined text-[20px]">info</span>
+</button>
+<button class="w-9 h-9 rounded-full flex items-center justify-center hover:bg-surface-container active:scale-95 transition-all text-on-surface-variant" title="Reload">
+<span class="material-symbols-outlined text-[20px]">refresh</span>
+</button>
+</div>
+<!-- Scrollable or Structured Menu List -->
+<div class="flex flex-col py-1">
+<!-- New tab -->
+<button class="flex items-center px-4 py-2.5 hover:bg-surface-container text-left transition-colors group">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant group-hover:text-on-surface mr-3">add_box</span>
+<span class="font-body-md text-body-md text-on-surface">New tab</span>
+</button>
+<!-- New Incognito tab -->
+<button class="flex items-center px-4 py-2.5 hover:bg-surface-container text-left transition-colors group">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant group-hover:text-on-surface mr-3">visibility_off</span>
+<span class="font-body-md text-body-md text-on-surface">New Incognito tab</span>
+</button>
+<div class="h-[1px] bg-outline-variant/30 my-1 mx-3"></div>
+<!-- History -->
+<button class="flex items-center px-4 py-2 hover:bg-surface-container text-left transition-colors group">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant group-hover:text-on-surface mr-3">history</span>
+<span class="font-body-md text-body-md text-on-surface">History</span>
+</button>
+<!-- Downloads -->
+<button class="flex items-center px-4 py-2 hover:bg-surface-container text-left transition-colors group">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant group-hover:text-on-surface mr-3">download_done</span>
+<span class="font-body-md text-body-md text-on-surface">Downloads</span>
+</button>
+<!-- Bookmarks -->
+<button class="flex items-center px-4 py-2 hover:bg-surface-container text-left transition-colors group">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant group-hover:text-on-surface mr-3">bookmarks</span>
+<span class="font-body-md text-body-md text-on-surface">Bookmarks</span>
+</button>
+<div class="h-[1px] bg-outline-variant/30 my-1 mx-3"></div>
+<!-- SPECIAL HIGHLIGHTED ITEM: Add to My Private (Vault) -->
+<div class="mx-2 my-1.5 p-2 rounded-xl bg-surface-container-high border border-primary/20 hover:bg-surface-container transition-all cursor-pointer">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[20px]" data-weight="fill" style="font-variation-settings: 'FILL' 1;">security</span>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Add to My Private</span>
+<span class="px-1.5 py-0.2 rounded-full bg-primary text-on-primary font-label-sm text-[9px] tracking-wider font-bold">VAULT</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline leading-tight">Saves as app in Private Virtual Phone</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline text-[20px]">chevron_right</span>
+</div>
+</div>
+<div class="h-[1px] bg-outline-variant/30 my-1 mx-3"></div>
+<!-- Share... -->
+<button class="flex items-center px-4 py-2 hover:bg-surface-container text-left transition-colors group">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant group-hover:text-on-surface mr-3">share</span>
+<span class="font-body-md text-body-md text-on-surface">Share...</span>
+</button>
+<!-- Desktop site (checkbox) -->
+<label class="flex items-center justify-between px-4 py-2 hover:bg-surface-container cursor-pointer transition-colors">
+<div class="flex items-center">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant mr-3">desktop_windows</span>
+<span class="font-body-md text-body-md text-on-surface">Desktop site</span>
+</div>
+<input class="w-4 h-4 rounded text-primary focus:ring-primary border-outline-variant" type="checkbox"/>
+</label>
+<!-- Settings -->
+<button class="flex items-center px-4 py-2 hover:bg-surface-container text-left transition-colors group">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant group-hover:text-on-surface mr-3">settings</span>
+<span class="font-body-md text-body-md text-on-surface">Settings</span>
+</button>
+</div>
+</section>
+<!-- FLOATING SNACKBAR / TOAST NOTIFICATION -->
+<aside class="absolute bottom-[76px] left-3 right-3 z-50 flex items-center justify-between px-space-md py-3 rounded-2xl bg-inverse-surface text-inverse-on-surface shadow-2xl border border-outline/30 animate-bounce-short">
+<div class="flex items-center gap-space-sm min-w-0 pr-2">
+<span class="material-symbols-outlined text-tertiary-fixed text-[20px] shrink-0" data-weight="fill" style="font-variation-settings: 'FILL' 1;">shield</span>
+<div class="flex flex-col min-w-0">
+<p class="font-label-md text-label-md text-inverse-on-surface truncate font-medium">App added to My Private space</p>
+<p class="font-body-sm text-[11px] text-outline-variant flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+            Biometric encryption enabled
+          </p>
+</div>
+</div>
+<button class="px-space-md py-1 rounded-full text-inverse-primary hover:bg-white/10 active:scale-95 transition-all font-label-md text-label-md font-bold uppercase tracking-wider shrink-0">
+        Undo
+      </button>
+</aside>
+<!-- SHARED COMPONENT: BottomNavBar (Strict JSON alignment & active logic) -->
+<!-- The user explicitly triggered the 3-dots popup menu, so more_vert is active -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-between items-center px-space-xl py-space-sm bg-surface-container-lowest dark:bg-inverse-surface border-t border-outline-variant dark:border-outline shadow-md dark:shadow-none">
+<!-- arrow_back -->
+<button class="flex items-center justify-center text-on-surface-variant dark:text-outline-variant p-space-sm hover:bg-surface-container dark:hover:bg-surface-variant hover:text-on-surface dark:hover:text-inverse-on-surface active:scale-95 transition-transform duration-150 rounded-full" title="Back">
+<span class="material-symbols-outlined text-[24px]" data-icon="arrow_back">arrow_back</span>
+</button>
+<!-- arrow_forward -->
+<button class="flex items-center justify-center text-on-surface-variant dark:text-outline-variant p-space-sm hover:bg-surface-container dark:hover:bg-surface-variant hover:text-on-surface dark:hover:text-inverse-on-surface active:scale-95 transition-transform duration-150 rounded-full" title="Forward">
+<span class="material-symbols-outlined text-[24px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<!-- home -->
+<button class="flex items-center justify-center text-on-surface-variant dark:text-outline-variant p-space-sm hover:bg-surface-container dark:hover:bg-surface-variant hover:text-on-surface dark:hover:text-inverse-on-surface active:scale-95 transition-transform duration-150 rounded-full" title="Home">
+<span class="material-symbols-outlined text-[24px]" data-icon="home">home</span>
+</button>
+<!-- tab (Tab counter) -->
+<button class="flex items-center justify-center text-on-surface-variant dark:text-outline-variant p-space-sm hover:bg-surface-container dark:hover:bg-surface-variant hover:text-on-surface dark:hover:text-inverse-on-surface active:scale-95 transition-transform duration-150 rounded-full" title="Tabs">
+<div class="relative w-6 h-6 border-2 border-current rounded flex items-center justify-center">
+<span class="font-label-sm text-[10px] font-bold">4</span>
+</div>
+</button>
+<!-- more_vert (ACTIVE: highlighted container per spec when 3-dot menu is open) -->
+<button class="flex items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-full p-space-sm active:scale-95 transition-transform duration-150 shadow-sm" title="More options">
+<span class="material-symbols-outlined text-[24px]" data-icon="more_vert">more_vert</span>
+</button>
+</nav>
+<!-- Bottom Mobile Gesture Pill Indicator -->
+<div class="absolute bottom-1 left-1/2 -translate-x-1/2 w-32 h-1 bg-on-surface/20 rounded-full z-50 pointer-events-none"></div>
+</div>
+</body></html>

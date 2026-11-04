@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Nova Browser - Premium</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+body{font-family:Inter,system-ui,sans-serif}
+.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+.glass{background:rgba(255,255,255,.72);backdrop-filter:blur(16px);border:1px solid rgba(226,232,240,.9)}
+.darkglass{background:rgba(15,23,42,.92);border:1px solid rgba(51,65,85,.8)}
+.app-icon{background:#1e293b;border:1px solid #334155;color:#e2e8f0}
+.app-icon:hover{background:#273244}
+.hero{background:linear-gradient(135deg,#0f172a 0%,#1e3a8a 55%,#2563eb 100%)}
+</style>
+</head>
+<body class="bg-[#f8f9ff] text-slate-900 min-h-screen">
+<header class="glass sticky top-0 z-40 flex items-center justify-between px-4 py-3">
+  <div class="flex items-center gap-2"><div class="w-8 h-8 rounded-full bg-[#2563eb] text-white flex items-center justify-center font-bold">N</div><span class="font-semibold">Nova</span></div>
+  <div class="flex-1 mx-3 bg-slate-100 rounded-full px-4 py-2 text-sm text-slate-500 truncate">nova://search</div>
+  <a href="nova_private_premium.html" class="bg-[#e5eeff] text-[#004ac6] text-xs font-semibold px-3 py-2 rounded-full">Vault</a>
+</header>
+<main class="max-w-md mx-auto px-4 pb-10">
+  <section class="hero rounded-3xl mt-5 p-6 text-white relative overflow-hidden">
+    <p class="text-[11px] tracking-widest text-blue-200">NOVA BROWSER</p>
+    <h1 class="text-2xl font-bold mt-2 leading-tight">Search fast.<br/>Stay private.</h1>
+    <p class="text-sm text-blue-100 mt-2">Encrypted · Rapid · Private by design</p>
+    <div class="absolute -right-6 -bottom-6 w-32 h-32 rounded-full bg-white/10 blur-xl"></div>
+  </section>
+
+  <section class="mt-5">
+    <form onsubmit="event.preventDefault();var q=document.getElementById('q').value.trim();if(!q)return;if(q.includes('.')&&!q.includes(' ')){location.href=q.startsWith('http')?q:'https://'+q}else{location.href='https://www.google.com/search?q='+encodeURIComponent(q)}" class="bg-white rounded-full p-1.5 shadow border border-slate-200 flex items-center gap-2">
+      <span class="w-9 h-9 rounded-full bg-slate-100 flex items-center justify-center font-bold text-[#2563eb] ml-1">G</span>
+      <input id="q" class="flex-1 outline-none text-sm" placeholder="Search with Google or type URL"/>
+      <button class="w-10 h-10 rounded-full text-slate-500"><span class="material-symbols-outlined">mic</span></button>
+    </form>
+  </section>
+
+  <section class="grid grid-cols-4 gap-4 text-center mt-6">
+    <a href="https://www.google.com"><div class="w-12 h-12 mx-auto rounded-full bg-white border border-slate-200 flex items-center justify-center font-bold text-[#2563eb]">G</div><span class="text-[11px] text-slate-500">Google</span></a>
+    <a href="https://www.youtube.com"><div class="w-12 h-12 mx-auto rounded-full bg-white border border-slate-200 flex items-center justify-center"><span class="material-symbols-outlined text-red-600">play_circle</span></div><span class="text-[11px] text-slate-500">YouTube</span></a>
+    <a href="https://en.wikipedia.org"><div class="w-12 h-12 mx-auto rounded-full bg-white border border-slate-200 flex items-center justify-center font-bold">W</div><span class="text-[11px] text-slate-500">Wikipedia</span></a>
+    <a href="https://github.com"><div class="w-12 h-12 mx-auto rounded-full bg-white border border-slate-200 flex items-center justify-center"><span class="material-symbols-outlined">terminal</span></div><span class="text-[11px] text-slate-500">GitHub</span></a>
+  </section>
+
+  <!-- My Private - EXTRA PREMIUM, big-company look, not cartoon -->
+  <section class="darkglass rounded-3xl mt-8 p-5 text-white relative overflow-hidden">
+    <div class="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-indigo-500/20 blur-2xl"></div>
+    <div class="flex items-center justify-between relative">
+      <div><p class="text-[11px] tracking-widest text-indigo-300">MY PRIVATE</p><h2 class="text-lg font-semibold mt-1">Your private space</h2><p class="text-xs text-slate-400 mt-1">Apps saved inside Nova only.<br/>Never on the phone home screen.</p></div>
+      <div class="w-12 h-12 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center"><span class="material-symbols-outlined text-indigo-300">shield</span></div>
+    </div>
+    <div class="grid grid-cols-4 gap-3 text-center mt-5 relative">
+      <a href="https://open.spotify.com"><div class="app-icon w-14 h-14 mx-auto rounded-[22%] flex items-center justify-center font-bold">S</div><span class="text-[11px] text-slate-300">Spotify</span></a>
+      <a href="https://www.notion.so"><div class="app-icon w-14 h-14 mx-auto rounded-[22%] flex items-center justify-center font-bold">N</div><span class="text-[11px] text-slate-300">Notion</span></a>
+      <a href="https://chatgpt.com"><div class="app-icon w-14 h-14 mx-auto rounded-[22%] flex items-center justify-center"><span class="material-symbols-outlined">smart_toy</span></div><span class="text-[11px] text-slate-300">ChatGPT</span></a>
+      <a href="https://www.instagram.com"><div class="app-icon w-14 h-14 mx-auto rounded-[22%] flex items-center justify-center"><span class="material-symbols-outlined">photo_camera</span></div><span class="text-[11px] text-slate-300">Instagram</span></a>
+    </div>
+    <a href="nova_pin_original.html" class="block text-center mt-5 py-3 rounded-full bg-[#2563eb] text-white text-sm font-semibold">Open My Private with PIN</a>
+    <p class="text-[11px] text-slate-500 text-center mt-3">Isolated session · No history saved outside Nova</p>
+  </section>
+</main>
+</body></html>
