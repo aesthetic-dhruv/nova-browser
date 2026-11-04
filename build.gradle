@@ -1,17 +1,7 @@
-buildscript {
-    ext.kotlin_version = "1.9.22"
-    repositories {
-        google()
-        mavenCentral()
-    }
-    dependencies {
-        classpath("com.android.application:com.android.application.gradle.plugin:8.2.2")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
-    }
-}
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-    }
+// Top-level build file - modern plugins DSL, no buildscript classpath.
+// The old file used a wrong AGP artifact and caused the Gradle evaluation error.
+plugins {
+    id("com.android.application") version "8.2.2" apply false
+    id("org.jetbrains.kotlin.android") version "1.9.22" apply false
+    id("org.jetbrains.kotlin.kapt") version "1.9.22" apply false
 }
